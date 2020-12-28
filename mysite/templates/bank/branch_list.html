@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+
+  <div class="card">
+      <div class="card-header">
+          <i class="fa fa-align-justify"></i>Branch List
+
+      </div>
+
+      <div class="card-body">
+          <table class="table table-responsive-sm">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>Branch Name</th>
+                      <th>Bank Name</th>
+                      <th>Address</th>
+                      <th>Branch Manager</th>
+                      <th>Phone</th>
+                      <th>District</th>
+                      <th>Register Date</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for branch in branch %}
+                    <tr>
+                        <td>{{ branch.id }}</td>
+                        <td>{{ branch.branch_name }}</td>
+                         <td>{{ branch.bank }}</td>
+                         <td>{{ branch.address }}</td>
+                         <td>{{ branch.manager }}</td>
+                         <td>{{ branch.phone }}</td>
+                         <td>{{ branch.district }}</td>
+                        <td>{{ branch.date }}</td>
+                    </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+{% endblock %}

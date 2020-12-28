@@ -1,0 +1,7 @@
+<option value="">---------</option>
+{% for taluka in taluka %}
+<option value="{{ taluka.pk }}">{{ taluka.name }}</option>
+{% endfor %}
+{% for village in village %}
+<option value="{{ village.pk }}">{{ village.name }}</option>
+{% endfor %}

@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-header">Village Register Form</div>
+    <div class="card-body">
+      <form class="" action="" method="post"   id="VillageRegistrationForm" data-taluka-url={% url 'load-taluka' %}>
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!--      <script src="{% static 'src/js/registration.js' %}"></script>-->
+<!--      <script src="{% static 'src/js/address.js' %}"></script>-->
+        <script>
+        $("#id_district").change(function () {
+          var url = $("#VillageRegistrationForm").attr("data-taluka-url");
+          var districtId = $(this).val();
+
+          $.ajax({
+            url: url,
+            data: {
+              'district': districtId
+            },
+            success: function (data) {
+              $("#id_taluka").html(data);
+            }
+          });
+
+        });
+        $("#id_taluka").change(function () {
+          var url = $("#VillageRegistrationForm").attr("data-taluka-url");
+          var talukaId = $(this).val();
+
+          $.ajax({
+            url: url,
+            data: {
+              'taluka': talukaId
+            },
+            success: function (data) {
+              $("#id_village").html(data);
+            }
+          });
+
+        });
+      </script>
+
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header">
+          <i class="fa fa-align-justify"></i>Union List</div>
+      <div class="card-body">
+          <table class="table table-responsive-sm">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>Village Name</th>
+                      <th>Register Date</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for village in village %}
+                    <tr>
+                        <td>{{ village.id }}</td>
+                        <td>{{ village.name }}</td>
+                        <td>{{ village.date }}</td>
+                    </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+{% endblock %}

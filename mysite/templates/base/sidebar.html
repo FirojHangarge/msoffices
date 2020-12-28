@@ -1,0 +1,107 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+
+             <!-- Administration Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Administration</a>
+             <ul class="nav-dropdown-items">
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'add-department' %}">
+                         <i class="fa fa-plus-circle"></i>Add Department</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'add-loan_type' %}">
+                         <i class="fa fa-plus-circle"></i>Add Loan Type</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'add-report_type' %}">
+                         <i class="fa fa-plus-circle"></i>Add Report Type</a>
+                 </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'add-property_type' %}">
+                         <i class="fa fa-plus-circle"></i>Add Property Type</a>
+                 </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'add-construction_type' %}">
+                         <i class="fa fa-plus-circle"></i>Add Construction Type</a>
+                 </li>
+             </ul>
+           </li>
+           <!-- Administration Section END -->
+
+            <!-- Employee Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Employee</a>
+             <ul class="nav-dropdown-items">
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'employee-registration' %}">
+                         <i class="fa fa-plus-circle"></i>Add Employee</a>
+                 </li>
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'employee-list' %}">
+                         <i class="fa fa-plus-circle"></i>Employee List</a>
+                 </li>
+             </ul>
+           </li>
+           <!-- Bank Section END -->
+
+             <!-- District Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>District</a>
+             <ul class="nav-dropdown-items">
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'district' %}">
+                         <i class="fa fa-plus-circle"></i>Add District</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'taluka' %}">
+                         <i class="fa fa-plus-circle"></i>Add Taluka</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'village' %}">
+                         <i class="fa fa-plus-circle"></i>Add Village</a>
+                 </li>
+             </ul>
+           </li>
+           <!-- District Section END -->
+
+            <!-- Bank Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Bank</a>
+             <ul class="nav-dropdown-items">
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'bank' %}">
+                         <i class="fa fa-plus-circle"></i>Add Bank</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'branch' %}">
+                         <i class="fa fa-plus-circle"></i>Add Branch</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'branch-list' %}">
+                         <i class="fa fa-plus-circle"></i>Branch List</a>
+                 </li>
+             </ul>
+           </li>
+           <!-- Bank Section END -->
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>
